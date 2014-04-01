@@ -1,6 +1,19 @@
 BookFlights
 ===========
 
+Instituto Tecnológico de Costa Rica.
+Carrera Ingeniería en Computación.
+Bases de datos Avanzadas.
+I Proyecto Programado.
+I Semestre 2014.
+
+###Integrantes
+
+Leonardo Madrigal
+Sebastián Segura.
+
+##Descripción
+
 Se le pide diseñar e implementar sistema de reservación de tiquetes o  boletos aéreos.  
 La compañía aérea requiere que el sistema opere en un ambiente  distribuido, el cual permitirá a los pasajeros la 
 reservación de vuelos y la  selección de asientos. La empresa tiene varias filiales. Los clientes  podrán reservar un 
