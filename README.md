@@ -1,16 +1,16 @@
 BookFlights
 ===========
 
-Instituto Tecnológico de Costa Rica.
-Carrera Ingeniería en Computación.
-Bases de datos Avanzadas.
-I Proyecto Programado.
-I Semestre 2014.
+####Instituto Tecnológico de Costa Rica.
+*Carrera Ingeniería en Computación.
+*Bases de datos Avanzadas.
+*I Proyecto Programado.
+*I Semestre 2014.
 
 ###Integrantes
 
-Leonardo Madrigal
-Sebastián Segura.
+*Leonardo Madrigal
+*Sebastián Segura.
 
 ##Descripción
 
