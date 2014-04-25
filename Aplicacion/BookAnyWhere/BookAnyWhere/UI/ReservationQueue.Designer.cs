@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationQueue));
             this.queuePanel = new System.Windows.Forms.Panel();
             this.reservationList = new System.Windows.Forms.ListBox();
             this.backButton = new System.Windows.Forms.Button();
@@ -89,6 +90,7 @@
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.queuePanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ReservationQueue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

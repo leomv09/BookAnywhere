@@ -61,11 +61,17 @@ namespace BookAnyWhere.Data
             this.db = this.server.GetDatabase(dataBaseName);
         }
 
+        /*Obtiene el servidor al que está conectado.
+         *Retorna: Objeto de tipo MongoServer.
+         */
         public MongoServer getServer()
         {
             return this.server;
         }
 
+        /*Obtiene la base a la que está conectado
+         *Retorna: Objeto de tipo MongoDatabase.
+         */
         public MongoDatabase getCurrentDataBase()
         {
             return this.db;

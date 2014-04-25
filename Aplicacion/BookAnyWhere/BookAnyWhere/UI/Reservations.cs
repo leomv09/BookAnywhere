@@ -85,13 +85,20 @@ namespace BookAnyWhere.UI
 
         private void searchReservationByClientPassport(string passport)
         {
-            this.currentData.Clear();
-            this.currentData = db.searchReservationByClient(passport).ToList();
-            if((this.currentData != null)&&this.currentData.Count > 0)
+            try
             {
-                addReservations(this.currentData);
+                this.currentData.Clear();
+                this.currentData = db.searchReservationByClient(passport).ToList();
+                if (this.currentData.Count > 0)
+                {
+                    addReservations(this.currentData);
+                }
+                else
+                {
+                    this.validator.showConfirmMessage("No hay registros.", "Buscar Reservación");
+                }
             }
-            else
+            catch (System.ArgumentNullException e)
             {
                 this.validator.showConfirmMessage("No hay registros.", "Buscar Reservación");
             }
@@ -128,7 +135,7 @@ namespace BookAnyWhere.UI
                     this.filterLabel.Text = "Fecha:";
                     break;
                 case 1: this.searchFilterBox.Clear();
-                    this.filterLabel.Text = "Nombre:";
+                    this.filterLabel.Text = "Pasaporte:";
                     break;
             }
         }

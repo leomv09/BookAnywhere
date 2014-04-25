@@ -53,6 +53,9 @@ namespace BookAnyWhere.Data
             return this.node;
         }
 
+        /*Retorna el nombre del nodo al que está conectado.
+         *Retorna: String con el nombre del nodo.
+         */
         public string getNodeName()
         {
             string nodeName = "";
@@ -71,6 +74,7 @@ namespace BookAnyWhere.Data
         /*Obtiene los vuelos por país que se desee.
          * Parametro country: País a obtener los vuelos. 
          * Parametro id: Indicador de país. 1 para salida y 2 para destino.
+         * Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
          */
         public MongoCursor<BsonDocument> getFlightsByCountry(string country, int id)
         {
@@ -95,8 +99,9 @@ namespace BookAnyWhere.Data
 
         /*Obtiene los vuelos por fecha
          *Parametro date: Fecha a buscar.
+         * Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
          */
-          public MongoCursor<BsonDocument> getFlightsByDate(DateTime date)
+        public MongoCursor<BsonDocument> getFlightsByDate(DateTime date)
           {
               MongoCollection<BsonDocument> tiquetes = db.GetCollection<BsonDocument>("vuelos");
               BsonDocument Date = new BsonDocument{
@@ -108,10 +113,11 @@ namespace BookAnyWhere.Data
               return tiquetes.Find(query);
           }
 
-          /*Obtiene los vuelos por fecha
-           *Parametro date: Fecha a buscar.
-           */
-          public MongoCursor<BsonDocument> getFlightsByDateAndNode(DateTime date, string node)
+        /*Obtiene los vuelos por fecha
+         *Parametro date: Fecha a buscar.
+         * Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
+         */
+        public MongoCursor<BsonDocument> getFlightsByDateAndNode(DateTime date, string node)
           {
               MongoCollection<BsonDocument> tiquetes = db.GetCollection<BsonDocument>("vuelos");
               BsonDocument Date = new BsonDocument{
@@ -123,12 +129,17 @@ namespace BookAnyWhere.Data
               return tiquetes.Find(query);
           }
 
-          public MongoCursor<BsonDocument> searchUserByPassport(string passport)
+        /*Obtiene un cliente por su pasaporte.
+         *Parametro passport:Pasaporte del cliente.
+         *Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
+         */
+        public MongoCursor<BsonDocument> searchUserByPassport(string passport)
           {
               MongoCollection<BsonDocument> clientes = db.GetCollection<BsonDocument>("clientes");
               var query = Query.EQ("pasaporte", passport);
               return clientes.Find(query);
           }
+
 
         /*Agrega un usuario a la base de datos
          *Parametro user: Es un documento Bson que contiene los datos del cliente a registrar.
@@ -139,6 +150,10 @@ namespace BookAnyWhere.Data
               clientes.Insert(user);
           }
 
+          /*Obtiene la información de un empleado cuando inicia sesión en el sistema.
+           *Parámetro user: String con el nombre de usuario.
+           * Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
+           */
           public MongoCursor<BsonDocument> getCredentials(string user)
           {
               MongoCollection<BsonDocument> empleados = db.GetCollection<BsonDocument>("empleados");
@@ -147,6 +162,11 @@ namespace BookAnyWhere.Data
 
           }
 
+        /*Verifica si hay asientos de un tipo determinado en un arreglo.
+         *Parámetro seatsArray: Arreglo donde se va a buscar.
+         *Parámetro type: Tipo de asiento a buscar. "Primera", "Negocios", "Economica".
+         *Retorna: true si existe el tipo buscado, false de lo contrario.
+         */
           public bool areAvailableSeatsByType(BsonArray seatsArray, string type)
           {
 
@@ -170,6 +190,10 @@ namespace BookAnyWhere.Data
 
           }
 
+        /*Remueve un asiento de un arreglo de asientos.
+         *Parámetro seatsArray: Arreglo de asientos(arreglo de id's) donde se va a eliminar.
+         *Parámetro seat: asiento a buscar y eliminar en el arreglo.
+         */
           public void removeSeatFromArray(List<BsonDocument> seatsArray, BsonDocument seat)
           {
               BsonDocument currentSeat = seatsArray.ElementAt(0);
@@ -179,12 +203,17 @@ namespace BookAnyWhere.Data
                   BsonArray asientos = currentSeat["asientos"].AsBsonArray;
                   if (asientos.ElementAt(i) == seat["_id"])
                   {
-                      seatsArray.Remove(currentSeat);
+                      seatsArray.Remove(currentSeat);//Se elimina el registro de la tabla.
                       return;
                   }
               }
           }
 
+          /*Busca un asiento por el tipo deseado.
+           * Parámetro seatsArray: Arreglo de asientos(arreglo de id's) a buscar el asiento.
+           * Parámetro type: Tipo de asiento a buscar. "Primera", "Negocios", "Economica".
+           * Retorna: Objeto de tipo BsonDocument con la información del asiento.
+           */
           public BsonDocument searchSeatByType(BsonArray seatsArray, string type)
           {
               int currenId = 0;
@@ -206,6 +235,10 @@ namespace BookAnyWhere.Data
               return currentSeat;
           }
 
+          /*Obtiene el arreglo de asientos por vuelo.
+           *Parámetro idFlight: Identificador del vuelo a obtener los asientos disponibles.
+           *Retorna: Objeto de tipo MongoCursor con el resultado de la consulta.
+           */
           public MongoCursor<BsonDocument> getSeatByFlight(string idFlight)
           {
               MongoCollection<BsonDocument> asientosPorVuelo = db.GetCollection<BsonDocument>("asientosPorVuelo");

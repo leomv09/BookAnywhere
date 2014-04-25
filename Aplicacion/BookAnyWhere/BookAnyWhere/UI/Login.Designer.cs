@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.loginPanel = new System.Windows.Forms.Panel();
-            this.userLabel = new System.Windows.Forms.Label();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.userNameBox = new System.Windows.Forms.TextBox();
-            this.passwordBox = new System.Windows.Forms.TextBox();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.countryLabel = new System.Windows.Forms.Label();
-            this.crButton = new System.Windows.Forms.RadioButton();
-            this.pmButton = new System.Windows.Forms.RadioButton();
             this.brButton = new System.Windows.Forms.RadioButton();
+            this.pmButton = new System.Windows.Forms.RadioButton();
+            this.crButton = new System.Windows.Forms.RadioButton();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.userNameBox = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,38 +60,47 @@
             this.loginPanel.Size = new System.Drawing.Size(352, 276);
             this.loginPanel.TabIndex = 0;
             // 
-            // userLabel
+            // brButton
             // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Location = new System.Drawing.Point(12, 23);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(67, 21);
-            this.userLabel.TabIndex = 0;
-            this.userLabel.Text = "Usuario:";
+            this.brButton.AutoSize = true;
+            this.brButton.Location = new System.Drawing.Point(110, 179);
+            this.brButton.Name = "brButton";
+            this.brButton.Size = new System.Drawing.Size(66, 25);
+            this.brButton.TabIndex = 8;
+            this.brButton.TabStop = true;
+            this.brButton.Text = "Brasil";
+            this.brButton.UseVisualStyleBackColor = true;
             // 
-            // passwordLabel
+            // pmButton
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(12, 73);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(92, 21);
-            this.passwordLabel.TabIndex = 1;
-            this.passwordLabel.Text = "Contraseña:";
+            this.pmButton.AutoSize = true;
+            this.pmButton.Location = new System.Drawing.Point(110, 148);
+            this.pmButton.Name = "pmButton";
+            this.pmButton.Size = new System.Drawing.Size(84, 25);
+            this.pmButton.TabIndex = 7;
+            this.pmButton.TabStop = true;
+            this.pmButton.Text = "Panama";
+            this.pmButton.UseVisualStyleBackColor = true;
             // 
-            // userNameBox
+            // crButton
             // 
-            this.userNameBox.Location = new System.Drawing.Point(110, 20);
-            this.userNameBox.Name = "userNameBox";
-            this.userNameBox.Size = new System.Drawing.Size(168, 29);
-            this.userNameBox.TabIndex = 2;
+            this.crButton.AutoSize = true;
+            this.crButton.Location = new System.Drawing.Point(110, 117);
+            this.crButton.Name = "crButton";
+            this.crButton.Size = new System.Drawing.Size(100, 25);
+            this.crButton.TabIndex = 6;
+            this.crButton.TabStop = true;
+            this.crButton.Text = "Costa Rica";
+            this.crButton.UseVisualStyleBackColor = true;
             // 
-            // passwordBox
+            // countryLabel
             // 
-            this.passwordBox.Location = new System.Drawing.Point(110, 70);
-            this.passwordBox.Name = "passwordBox";
-            this.passwordBox.PasswordChar = '*';
-            this.passwordBox.Size = new System.Drawing.Size(168, 29);
-            this.passwordBox.TabIndex = 3;
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Location = new System.Drawing.Point(12, 119);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(41, 21);
+            this.countryLabel.TabIndex = 5;
+            this.countryLabel.Text = "País:";
             // 
             // loginButton
             // 
@@ -107,47 +117,38 @@
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // countryLabel
+            // passwordBox
             // 
-            this.countryLabel.AutoSize = true;
-            this.countryLabel.Location = new System.Drawing.Point(12, 119);
-            this.countryLabel.Name = "countryLabel";
-            this.countryLabel.Size = new System.Drawing.Size(41, 21);
-            this.countryLabel.TabIndex = 5;
-            this.countryLabel.Text = "País:";
+            this.passwordBox.Location = new System.Drawing.Point(110, 70);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(168, 29);
+            this.passwordBox.TabIndex = 3;
             // 
-            // crButton
+            // userNameBox
             // 
-            this.crButton.AutoSize = true;
-            this.crButton.Location = new System.Drawing.Point(110, 117);
-            this.crButton.Name = "crButton";
-            this.crButton.Size = new System.Drawing.Size(100, 25);
-            this.crButton.TabIndex = 6;
-            this.crButton.TabStop = true;
-            this.crButton.Text = "Costa Rica";
-            this.crButton.UseVisualStyleBackColor = true;
+            this.userNameBox.Location = new System.Drawing.Point(110, 20);
+            this.userNameBox.Name = "userNameBox";
+            this.userNameBox.Size = new System.Drawing.Size(168, 29);
+            this.userNameBox.TabIndex = 2;
             // 
-            // pmButton
+            // passwordLabel
             // 
-            this.pmButton.AutoSize = true;
-            this.pmButton.Location = new System.Drawing.Point(110, 148);
-            this.pmButton.Name = "pmButton";
-            this.pmButton.Size = new System.Drawing.Size(84, 25);
-            this.pmButton.TabIndex = 7;
-            this.pmButton.TabStop = true;
-            this.pmButton.Text = "Panama";
-            this.pmButton.UseVisualStyleBackColor = true;
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(12, 73);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(92, 21);
+            this.passwordLabel.TabIndex = 1;
+            this.passwordLabel.Text = "Contraseña:";
             // 
-            // brButton
+            // userLabel
             // 
-            this.brButton.AutoSize = true;
-            this.brButton.Location = new System.Drawing.Point(110, 179);
-            this.brButton.Name = "brButton";
-            this.brButton.Size = new System.Drawing.Size(66, 25);
-            this.brButton.TabIndex = 8;
-            this.brButton.TabStop = true;
-            this.brButton.Text = "Brasil";
-            this.brButton.UseVisualStyleBackColor = true;
+            this.userLabel.AutoSize = true;
+            this.userLabel.Location = new System.Drawing.Point(12, 23);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(67, 21);
+            this.userLabel.TabIndex = 0;
+            this.userLabel.Text = "Usuario:";
             // 
             // Login
             // 
@@ -156,6 +157,7 @@
             this.ClientSize = new System.Drawing.Size(352, 276);
             this.Controls.Add(this.loginPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

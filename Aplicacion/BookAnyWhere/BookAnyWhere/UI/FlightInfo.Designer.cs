@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightInfo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menuButton = new System.Windows.Forms.Button();
@@ -225,7 +226,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.93157F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.06844F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tableLayoutPanel1.Controls.Add(this.searchLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboSearchBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.filterBox, 1, 1);
@@ -277,7 +278,7 @@
             this.searchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.searchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Location = new System.Drawing.Point(358, 40);
+            this.searchButton.Location = new System.Drawing.Point(357, 40);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(89, 32);
             this.searchButton.TabIndex = 4;
@@ -302,6 +303,7 @@
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FlightInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
