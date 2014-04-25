@@ -52,7 +52,7 @@ namespace BookAnyWhere.UI
             this.flightNameBox.Text = info["paisSalida"].AsString + " - " + info["paisDestino"].AsString;
             this.flightNumberBox.Text = info["_id"].AsString;
             this.departureDateBox.Text = fecha["dia"].AsInt32 +" / " + fecha["mes"].AsInt32 +" / "+ fecha["anio"].AsInt32;
-            this.departureHourBox.Text = Convert.ToString(info["hora"].AsInt32);
+            this.departureHourBox.Text = info["hora"].AsString;
             this.destinationBox.Text = info["paisDestino"].AsString;
 
         }
@@ -135,11 +135,12 @@ namespace BookAnyWhere.UI
                     seat = this.db.searchSeatByType(seatsIdArray, seatType);
                     if (id == 1)
                     {
-                        if (seat["estadoReservacion"].AsString.Equals("Sin Reservar"))
+                        if (seat["estadoReservacion"].AsString.ToUpper().Equals("DISPONIBLE"))
                         {
-                            this.db.updateSeatSatuts(seat["_id"].AsInt32, "reservado");
+                            this.db.updateSeatSatuts(seat["_id"].AsInt32, "RESERVADO");
                             this.db.removeSeatFromArray(seatsArray, seat);
-                            reservation = new BsonDocument {    {"datosCliente", infoCliente},
+                            reservation = new BsonDocument {    {"_id", this.db.getNextIntegerId("reservaciones")},
+                                                            {"datosCliente", infoCliente},
                                                             {"fecha", fecha},
                                                             {"hora", this.hour},
                                                             {"vuelo", this.flightInfo["_id"]},
@@ -153,7 +154,7 @@ namespace BookAnyWhere.UI
                         }
                         else
                         {
-                            reservation = new BsonDocument {            {"_id", this.db.getNextIntegerId("reservaciones")},
+                            reservation = new BsonDocument {{"_id", this.db.getNextIntegerId("reservaciones")},
                                                             {"datosCliente", infoCliente},
                                                             {"fecha", fecha},
                                                             {"hora", this.hour},
@@ -193,7 +194,7 @@ namespace BookAnyWhere.UI
                 }
                 else
                 {
-                    reservation = new BsonDocument {            {"_id", this.db.getNextIntegerId("reservaciones")},
+                    reservation = new BsonDocument {        {"_id", this.db.getNextIntegerId("reservaciones")},
                                                             {"datosCliente", infoCliente},
                                                             {"fecha", fecha},
                                                             {"hora", this.hour},

@@ -50,7 +50,7 @@ namespace BookAnyWhere.UI
             setDate(flight["fecha"].AsBsonDocument);
             this.departureCountryBox.Text = flight["paisSalida"].AsString;
             this.destinyCountryBox.Text = flight["paisDestino"].AsString;
-            this.hourBox.Text = Convert.ToString(flight["hora"].AsInt32);
+            this.hourBox.Text = flight["hora"].AsString;
             this.availableSeatsBox.Text = Convert.ToString(flight["asientosDisponibles"].AsInt32);
             this.statusBox.Text = flight["estadoVuelo"].AsString;
         }

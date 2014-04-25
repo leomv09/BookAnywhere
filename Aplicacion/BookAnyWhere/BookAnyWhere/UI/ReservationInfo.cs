@@ -62,7 +62,7 @@ namespace BookAnyWhere.UI
 
         private void setSeatInfo(BsonDocument seat)
         {
-            this.seatBox.Text = seat["tipoAiento"].AsString;
+            this.seatBox.Text = seat["tipoAsiento"].AsString;
         }
 
         private void setClientInfo(BsonDocument client)

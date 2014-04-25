@@ -30,7 +30,7 @@ namespace BookAnyWhere.Data
             this.validator = new DataValidation();
             try
             {
-                string connectionString = "";
+                /*string connectionString = "";
                 switch (node)
                 {
                     case 1: connectionString = "mongodb://SERVER1:27017";
@@ -40,8 +40,8 @@ namespace BookAnyWhere.Data
                     case 3: connectionString = "mongodb://SERVER3:27017";
                         break;
                 }
-                MongoClient client = new MongoClient(connectionString);
-                //MongoClient client = new MongoClient(); // connect to localhost
+                MongoClient client = new MongoClient(connectionString);*/
+                MongoClient client = new MongoClient(); // connect to localhost
                 this.server = client.GetServer();
                 this.db = this.server.GetDatabase("FlyAnywhere");
                 this.isConnected = true;

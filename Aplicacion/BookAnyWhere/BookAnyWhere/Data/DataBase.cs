@@ -79,19 +79,19 @@ namespace BookAnyWhere.Data
         public MongoCursor<BsonDocument> getFlightsByCountry(string country, int id)
         {
             this.db.Server.Connect();
-            MongoCollection<BsonDocument> tiquetes = db.GetCollection<BsonDocument>("vuelos");
+            MongoCollection<BsonDocument> vuelos = db.GetCollection<BsonDocument>("vuelos");
             MongoCursor < BsonDocument > res;
             if (id == 1)
             {
                 var query = Query.EQ("paisSalida", country);
-                res = tiquetes.Find(query);
+                res = vuelos.Find(query);
                 this.db.Server.Disconnect();
                 return res;
             }
             else
             {             
                 var query = Query.EQ("paisDestino", country);
-                res = tiquetes.Find(query);
+                res = vuelos.Find(query);
                 this.db.Server.Disconnect();
                 return res;
             }
@@ -372,7 +372,7 @@ namespace BookAnyWhere.Data
             {
                 var query = Query.EQ("_id", id);
                 reservaciones.Remove(query);
-                removeRservationFromQueue(id);
+                removeRservationFromQueue(idQueue);
             }
             else
             {
