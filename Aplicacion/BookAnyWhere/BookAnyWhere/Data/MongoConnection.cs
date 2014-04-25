@@ -18,6 +18,15 @@ namespace BookAnyWhere.Data
         
         public MongoConnection(int node)
         {
+            setNode(node);
+            
+        }
+
+        /*Establece a qué nodo se va a conectar.
+         *Parámetro node: Indicador del nodo donde se establece conexión. 1 Costa Rica, 2 Panamá y 3 Brasil.
+         */
+        private void setNode(int node)
+        {
             this.validator = new DataValidation();
             try
             {
@@ -42,9 +51,11 @@ namespace BookAnyWhere.Data
                 this.validator.showConfirmMessage("No hay conexión al servidor", "Error de conexión");
                 this.isConnected = false;
             }
-            
         }
 
+        /*Cambia la base de datos
+         *Parámetro dataBaseName: Nombre de la base a conectar.
+         */
         public void setDataBase(string dataBaseName)
         {
             this.db = this.server.GetDatabase(dataBaseName);
