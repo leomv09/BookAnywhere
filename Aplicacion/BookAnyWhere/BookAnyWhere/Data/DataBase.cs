@@ -268,9 +268,10 @@ namespace BookAnyWhere.Data
               MongoCollection<BsonDocument> asientos = db.GetCollection<BsonDocument>("asientos");
               var query = Query.EQ("_id", idSeat);
               var sortBy = SortBy.Descending("precio");
-              var update = Update.Set("estado", status);
+              var update = Update.Set("estadoReservacion", status);
               var result = asientos.FindAndModify(query,sortBy, update);
           }
+
 
           public void updateSeatsByFlight(string idFlight, List<BsonDocument> seatsArray)
           {
